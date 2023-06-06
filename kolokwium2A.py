@@ -16,7 +16,7 @@ import pandas as pd
 # plt.title("wykres f(x)=tan(x)+cos(x)/2")
 # plt.savefig("zadanie1.png")
 # plt.show()
-#
+
 # KONIEC
 #
 # zadanie 1 chatGPT
@@ -105,8 +105,8 @@ import pandas as pd
 # axes[1, 1].set_xticks([1, 2, 3, 4, 5])
 # axes[1, 1].set_yticks([0, 1, 2, 3, 4, 5])
 # axes[1, 1].legend()
-#
-# # wyłączenie wykresów drugiego i trzeciego 2 układzie 2x2
+
+# wyłączenie wykresów drugiego i trzeciego 2 układzie 2x2
 # axes[0, 1].axis("off")
 # axes[1, 0].axis("off")
 # plt.savefig("zadanie2.png")
@@ -123,8 +123,8 @@ import pandas as pd
 #
 # plt.subplot(2, 2, 1)        # <- wykres 1
 # plt.plot(x1, y1, 'r-.', label='sin(x)+0.4')
-# plt.xticks([0, 2.5, 5, 7.5, 10])
-# plt.yticks([-0.5, 0, 0.5, 1])
+# # plt.xticks([0, 2.5, 5, 7.5, 10])
+# # plt.yticks([-0.5, 0, 0.5, 1])
 # plt.xlabel('x')
 # plt.ylabel('sin(x)+0.4')
 # plt.legend(loc='lower left')
@@ -133,7 +133,7 @@ import pandas as pd
 # plt.subplot(2, 2, 4)        # <- wykres 2
 # plt.bar(x2, y2, label='f(x)=(x+5)/2')
 # plt.xticks([1, 2, 3, 4, 5])
-# plt.yticks([0, 1, 2, 3, 4, 5])
+# # plt.yticks([0, 1, 2, 3, 4, 5])
 # plt.xlabel('x')
 # plt.ylabel('wykres funkcji')
 # plt.legend(loc='upper left')
@@ -145,8 +145,8 @@ import pandas as pd
 # zadanie 3
 
 
-# tabelka = pd.read_csv('glass.data')
-#
+# tabelka = pd.read_csv('glass.data', header=0, sep=',', decimal='.')
+# print(tabelka)
 # a = tabelka[tabelka.Magnesium > 3.6]
 # new_df = a.groupby("Type of glass")
 # grupa = tabelka.groupby("Type of glass").size()
@@ -159,13 +159,13 @@ import pandas as pd
 # zadanie 4
 
 
-# df = pd.read_csv('glass.data')
-# sns.set()
-# plot = sns.barplot(x='Type of glass', y='Sodium', data=df, estimator=np.sum, label=["Magnesium","Aluminum","Silicon","Potassium","Calcium","Barium"])
-# sns.set_style('whitegrid')
-# plot.set(title="wykres słupkowy")
-# plot.legend()
-# plt.savefig("im_naz_zad4.png")
-# plt.show()
+df = pd.read_csv('glass.data')
+sns.set()
+plot = sns.barplot(x='Type of glass', y='Sodium', data=df,
+                   estimator=np.sum, hue='Type of glass', dodge=False, errorbar=None)
+sns.set_style('whitegrid')
+plot.set(title="wykres słupkowy")
+plt.savefig("im_naz_zad4.png")
+plt.show()
 
 
